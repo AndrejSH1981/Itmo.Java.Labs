@@ -19,7 +19,7 @@ public class lab1git {
         // 3.
         int number = 10500;
         double result = 0;
-        result = (number/10)/10;
+        result = (number/10d)/10d;
         System.out.println(result);
 
         // 4.
@@ -37,8 +37,8 @@ public class lab1git {
         int num2 = in2.nextInt();
 
         Scanner in3 = new Scanner(System.in);
-        System.out.print("введите целое число №2: ");
-        int num3 = in.nextInt();
+        System.out.print("введите целое число №3: ");
+        int num3 = in3.nextInt();
 
         System.out.printf("Введённое число №1: %d \n", num);
         System.out.printf("Введённое число №2: %d \n", num2);

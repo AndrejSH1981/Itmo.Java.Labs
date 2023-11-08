@@ -1,12 +1,11 @@
-package labs;
+package lab2;
+
 import java.util.Scanner;
 
-
-
-public class Main {
+public class Lab {
     //ввод чисел доубле только через точку(.)
 
-    public static void main (String[] args) {
+    public static void lab2(String[] args) {
         System.out.println("2.1-calculator");
         boolean workint1 = false;
         boolean workint2 = false;
@@ -27,8 +26,9 @@ public class Main {
         long num101l = 0;
 
 
-        if (x1.matches("^\\d+(\\,\\d+)?")){
-            num101l = Long.valueOf(x1);}
+        if (x1.matches("^\\d+(\\,\\d+)?")) {
+            num101l = Long.valueOf(x1);
+        }
 
         if ((x1.matches("^\\d+(\\,\\d+)?")) && ((num101l < 2147483647) && (num101l > -2147483648))) {
             //it is INT
@@ -38,15 +38,14 @@ public class Main {
             num101 = Integer.valueOf(x1);
             workint1 = true;
 
-        } else if ((((x1.matches("^\\d+(\\,\\d+)?")) && ((num101l > 2147483647)) || (num101l < -2147483648)) && (workint1 == false)) ) {
+        } else if ((((x1.matches("^\\d+(\\,\\d+)?")) && ((num101l > 2147483647)) || (num101l < -2147483648)) && (workint1 == false))) {
 
             //it is LONG
             num101 = 0;
-            System.out.println("it is LONGE") ;
+            System.out.println("it is LONGE");
             worklong1 = true;
             workint1 = false;
-        }
-        else  {
+        } else {
             // it is DOUBLE0
 
             num102 = Double.valueOf(x1);
@@ -63,8 +62,9 @@ public class Main {
         int num121 = 0;
         double num122 = 0;
         long num121l = 0;
-        if (x2.matches("^\\d+(\\,\\d+)?")){
-            num121l = Long.valueOf(x2);}
+        if (x2.matches("^\\d+(\\,\\d+)?")) {
+            num121l = Long.valueOf(x2);
+        }
 
 
         System.out.println("input num2");
@@ -77,20 +77,19 @@ public class Main {
             workint2 = true;
 
 
-        } else if ((((x2.matches("^\\d+(\\,\\d+)?")) &&((num121l > 2147483647) || (num121l < -2147483648) || (worklong1 == true)) && (workint2 == false)) && workdouble1 == false))  {
+        } else if ((((x2.matches("^\\d+(\\,\\d+)?")) && ((num121l > 2147483647) || (num121l < -2147483648) || (worklong1 == true)) && (workint2 == false)) && workdouble1 == false)) {
 
             num123 = Long.valueOf(x2);
             //it is LONG
 
             num103 = Long.valueOf(x1);
             num101 = 0;
-            System.out.println("it is LONGE") ;
+            System.out.println("it is LONGE");
             worklong2 = true;
             workint2 = false;
             worklong1 = true;
             workint1 = false;
-        }
-        else {
+        } else {
             // it is DOUBLE1
             System.out.println("it is DOUBLE1");
 
@@ -117,7 +116,6 @@ public class Main {
         boolean printint = false;
         boolean printdouble = false;
         boolean printlong = false;
-
 
 
         if (workint1 == true && workint2 == true) {
@@ -155,8 +153,7 @@ public class Main {
         }
 
 
-        if (printint == true || printdouble == true || printlong == true)
-        {
+        if (printint == true || printdouble == true || printlong == true) {
 
             //2.2 ---для второго задания
             double a = 0;
@@ -178,7 +175,7 @@ public class Main {
 
     }
 
-    static char getOperation () {
+    static char getOperation() {
         System.out.println("Input operation:");
         Scanner scanner = new Scanner(System.in);
         char operation;
@@ -192,7 +189,7 @@ public class Main {
         return operation;
     }
 
-    static int calcint ( int num101, int num121,char operation) {
+    static int calcint(int num101, int num121, char operation) {
 
         int result;
         double result2;
@@ -221,7 +218,7 @@ public class Main {
 
     }
 
-    static double calcdouble ( double num102, double num122, char operation){
+    static double calcdouble(double num102, double num122, char operation) {
         double result2;
 
         switch (operation) {
@@ -248,7 +245,7 @@ public class Main {
 
     }
 
-    static long calclong ( long num103, long num123, char operation){
+    static long calclong(long num103, long num123, char operation) {
         long result3;
 
         switch (operation) {
@@ -275,51 +272,4 @@ public class Main {
     }
 
 
-
-
 }
-
-class Rectangle{
-
-
-    double a = 0;
-    double b = 0;
-    double c = 0;
-    double d = 0;
-
-
-
-
-
-    public Rectangle(){
-        a=10;
-        b=10;
-        c=10;
-        d=10;
-        System.out.println("-sides of the rectangle from the constructor, without parameters:");
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
-        System.out.println(d);
-    }
-    ;
-    public  Rectangle(double aa, double bb, double cc, double dd){
-
-        this.a = aa;
-        this.b = bb;
-        this.c = cc;
-        this.d = dd;
-
-        System.out.println("-sides of the rectangle from the constructor with parameters:");
-        System.out.println(aa);
-        System.out.println(bb);
-        System.out.println(cc);
-        System.out.println(dd);
-
-    }
-
-}
-
-
-
-
