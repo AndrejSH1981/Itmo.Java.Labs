@@ -19,7 +19,7 @@ public class lab1git {
         // 3.
         int number = 10500;
         double result = 0;
-        result = (number/10)/10;
+        result = (number/10d)/10d;
         System.out.println(result);
 
         // 4.
