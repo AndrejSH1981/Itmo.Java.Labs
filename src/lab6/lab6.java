@@ -11,7 +11,7 @@ public class lab6 {
         System.out.println("//4");
         new Proverka4().proverka4();
         System.out.println("//6");
-        new proverka6().proverka6();
+        new proverka5().proverka5();
 
     }
 
@@ -175,64 +175,74 @@ class Proverka3{
 class MClass {
     int number;
 
-    public void getNumber(int number) {
-        setNumber(number);
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
+    public void setNumber() {
+        System.out.print(number);
     }
 }
-
 class SubClass extends MClass {
-    public SubClass(int number) {
-        printNumber(number);
+
+    public void SubClass() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter numer: ");
+        super.number = scanner.nextInt();
+
+        System.out.print("\nNumber: ");
     }
-    public void printNumber(int number) {
-        System.out.println("Number: " + number);
+}
+class SubClass1 extends MClass {
+    public void SubClass1() {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nEnter numer: ");
+        super.number = scanner.nextInt()-1;
+
+        printNumber();
+    }
+    public void printNumber() {
+        System.out.print("\nNumber: ");
     }
 }
 class Proverka4{
     public void proverka4()
     {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter numer: ");
-        int subClassnumber = scanner.nextInt();
-
-        SubClass subClass = new SubClass(subClassnumber);
-        new MClass();
-        subClass.getNumber(subClassnumber);
+        SubClass subClass = new SubClass();
+        subClass.SubClass();
+        subClass.setNumber();
+        
+        SubClass1 subClass1 = new SubClass1();
+        subClass1.SubClass1();
+        subClass1.setNumber();
     }
 }
 
 //--5
 class MClass5 {
-    public String getUserAge(String age) {
-        return age;
+    String age;
+    public void getUserAge() {
+        System.out.println(age);
     }
 }
-class SubClass5 extends MClass5 {
-    @Override
-    public String getUserAge(String name) {
-        System.out.print(name);
-        return name;
-    }
-}
-class proverka6 {
-    public void proverka6() {
-        SubClass5 sub = new SubClass5();
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter age: ");
-        String age = scanner.nextLine();
 
+class SubClass5 extends MClass5 {
+    String name;
+    @Override
+    public void getUserAge() {
+        
+        Scanner scanner1 = new Scanner(System.in);
+        System.out.print("Enter age: ");
+        super.age = scanner1.nextLine();
+        
         Scanner scanner2 = new Scanner(System.in);
         System.out.print("Enter name: ");
-        String name = scanner2.nextLine();
+        name = scanner2.nextLine();
+        super.getUserAge();
+        System.out.println("Age: " + super.age + ", Name: " + name);
 
-        System.out.print("Use age: ");
-        sub.getUserAge(age);
-        System.out.print(" Use name: ");
-        sub.getUserAge(name);
-
+    }
+}
+class proverka5 {
+    public void proverka5() {
+        SubClass5 sub = new SubClass5();
+        sub.getUserAge();
     }
 }
