@@ -10,7 +10,7 @@ public class lab6 {
         new Proverka3().proverka3();
         System.out.println("//4");
         new Proverka4().proverka4();
-        System.out.println("//6");
+        System.out.println("//5");
         new proverka5().proverka5();
 
     }
