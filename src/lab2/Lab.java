@@ -2,17 +2,13 @@ package lab2;
 
 import java.util.Scanner;
 
-public class Lab {
+class lab2 {
+
     //ввод чисел доубле только через точку(.)
 
-    public static void lab2(String[] args) {
+    public static void main(String[] args) {
         System.out.println("2.1-calculator");
-        boolean workint1 = false;
-        boolean workint2 = false;
-        boolean workdouble1 = false;
-        boolean workdouble2 = false;
-        boolean worklong1 = false;
-        boolean worklong2 = false;
+
 
         long num103 = 0;
         long num123 = 0;
@@ -25,6 +21,12 @@ public class Lab {
         double num102 = 0;
         long num101l = 0;
 
+        boolean workint1 = false;
+        boolean workint2 = false;
+        boolean workdouble1 = false;
+        boolean workdouble2 = false;
+        boolean worklong1 = false;
+        boolean worklong2 = false;
 
         if (x1.matches("^\\d+(\\,\\d+)?")) {
             num101l = Long.valueOf(x1);
@@ -117,12 +119,13 @@ public class Lab {
         boolean printdouble = false;
         boolean printlong = false;
 
+        new Calculator();
 
         if (workint1 == true && workint2 == true) {
-            calcint(num101, num121, operation);
+            new Calculator().calcint(num101, num121, operation);
 
             System.out.println("int");
-            int result = calcint(num101, num121, operation);
+            int result =  new Calculator().calcint(num101, num121, operation);
             System.out.println(result);
             printint = true;
             printdouble = false;
@@ -131,10 +134,10 @@ public class Lab {
         }
 
         if (workdouble1 == true && workdouble2 == true) {
-            calcdouble(num102, num122, operation);
+            new Calculator().calcdouble(num102, num122, operation);
 
             System.out.println("double");
-            double result2 = calcdouble(num102, num122, operation);
+            double result2 =  new Calculator().calcdouble(num102, num122, operation);
             System.out.println(result2);
             printint = false;
             printdouble = true;
@@ -142,10 +145,10 @@ public class Lab {
         }
 
         if (worklong1 == true && worklong2 == true) {
-            calclong(num103, num123, operation);
+            new Calculator().calclong(num103, num123, operation);
 
             System.out.println("long");
-            long result3 = calclong(num103, num123, operation);
+            long result3 =  new Calculator().calclong(num103, num123, operation);
             System.out.println(result3);
             printint = false;
             printdouble = false;
@@ -167,8 +170,14 @@ public class Lab {
             b = in10.nextDouble();
             c = in10.nextDouble();
             d = in10.nextDouble();
+
+
+
+
+
             new Rectangle(a, b, c, d);
             new Rectangle();
+
             //2.2 ---для второго задания
         }
 
@@ -188,7 +197,9 @@ public class Lab {
         }
         return operation;
     }
+}
 
+class Calculator{
     static int calcint(int num101, int num121, char operation) {
 
         int result;
@@ -211,7 +222,7 @@ public class Lab {
             default:
 
                 System.out.println("Operation not recognized");
-                result = calcint(num101, num121, getOperation());//рекурсия
+                result = calcint(num101, num121, new lab2().getOperation());
 
         }
         return result;
@@ -238,7 +249,7 @@ public class Lab {
             default:
                 //return3 = 5;
                 System.out.println("Operation not recognized");
-                result2 = calcdouble(num102, num122, getOperation());//рекурсия
+                result2 = calcdouble(num102, num122, new lab2().getOperation());
                 //System.out.println(result2);
         }
         return result2;
@@ -265,11 +276,52 @@ public class Lab {
             default:
                 //return3 = 5;
                 System.out.println("Operation not recognized");
-                result3 = calclong(num103, num123, getOperation());//рекурсия
+                result3 = calclong(num103, num123, new lab2().getOperation());
                 //System.out.println(result2);
         }
         return result3;
     }
 
+}
+class Rectangle{
+
+
+    double a = 0;
+    double b = 0;
+    double c = 0;
+    double d = 0;
+
+
+
+
+
+    public Rectangle(){
+        a=10;
+        b=10;
+        c=10;
+        d=10;
+        System.out.println("-sides of the rectangle from the constructor, without parameters:");
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println(d);
+    }
+    ;
+    public  Rectangle(double aa, double bb, double cc, double dd){
+
+        this.a = aa;
+        this.b = bb;
+        this.c = cc;
+        this.d = dd;
+
+        System.out.println("-sides of the rectangle from the constructor with parameters:");
+        System.out.println(aa);
+        System.out.println(bb);
+        System.out.println(cc);
+        System.out.println(dd);
+
+    }
 
 }
+
+
